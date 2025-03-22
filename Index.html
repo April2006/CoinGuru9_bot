@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <h1>Welcome to My Telegram Mini App</h1>
+    <p>Your coins: <span id="coins">0</span></p>
+    <button onclick="earnCoins()">Earn Coins</button>
+
+    <script>
+        let coins = 0;
+        function earnCoins() {
+            coins += 10;
+            document.getElementById("coins").innerText = coins;
+            Telegram.WebApp.sendData(JSON.stringify({coins: coins}));
+        }
+        Telegram.WebApp.ready();
+    </script>
+</body>
+</html> 
